@@ -1,0 +1,94 @@
+
+.box {
+  width: 750rpx;
+  height: 30rpx;
+  background-color: #b9f8b9;
+}
+
+.whitebox {
+  width: 750rpx;
+  height: 10rpx;
+  background-color: #f6f6f6;
+}
+
+.cell-title {
+  color: green !important;
+  font-size: 40rpx !important;
+  text-align: center;
+  font-weight: bold;
+}
+
+.righttext {
+  color: black !important;
+  font-size: 30rpx !important;
+  text-align: right;
+}
+
+.cell-value {
+  color: black !important;
+  font-size: 28rpx !important;
+  text-align: center;
+}
+
+.border-top-row {
+  border-top: #ccc solid 2rpx;
+}
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: #aaa;
+}
+
+.hugebox {
+  width: 750rpx;
+  height: 1000rpx;
+  background-color: #b9f8b9;
+}
+
+
+.bottombutton{
+  width: 750rpx;
+  height: 100rpx;
+}
+
+.btn1 {
+  width: 60%;
+  margin-top: 20rpx;
+  background-color: #e6e6e6;
+  color: green;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnImg {
+  margin-right: 8rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.btn1::after {
+  border-radius: 98rpx;
+  border: 0; 
+}
+
+
+.btn2 {
+  width: 60%;
+  margin-top: 20rpx;
+  background-color: #e6e6e6;
+  color: rgba(255, 0, 0, 0.726);
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn2::after {
+  border-radius: 98rpx;
+  border: 0; 
+}

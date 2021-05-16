@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/base/base",
+    "pages/cloud/cloud",
+    "pages/editOffer/editOffer"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#008020",
+    "navigationBarTitleText": "Offer Line",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#008020",
+    "list": [
+      {
+      "pagePath": "pages/base/base",
+      "text": "MyOffer",
+      "iconPath": "images/profile.png",
+      "selectedIconPath": "images/profile-actived.png"
+      },{
+        "pagePath": "pages/cloud/cloud",
+        "text": "分享Offer",
+        "iconPath": "images/film.png",
+        "selectedIconPath": "images/film-actived.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "vant-weapp/button/index",
+    "van-row": "vant-weapp/row/index",
+    "van-icon": "vant-weapp/icon/index",
+    "van-col": "vant-weapp/col/index",
+    "van-toast": "vant-weapp/toast/index"
+  }
+}

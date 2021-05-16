@@ -1,0 +1,50 @@
+/* pages/base/base.wxss */
+
+
+.box {
+  width: 750rpx;
+  height: 30rpx;
+  background-color: #b9f8b9;
+}
+
+.whitebox {
+  width: 750rpx;
+  height: 10rpx;
+  background-color: #f6f6f6;
+}
+
+
+.cell-title {
+  color: green !important;
+  font-size: 40rpx !important;
+  text-align: center;
+  font-weight: bold;
+}
+
+.righttext {
+  color: black !important;
+  font-size: 30rpx !important;
+  text-align: right;
+}
+
+.cell-value {
+  color: black !important;
+  font-size: 28rpx !important;
+  text-align: center;
+}
+
+.border-top-row {
+  border-top: #ccc solid 2rpx;
+}
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: #aaa;
+}
+
+.hugebox {
+  width: 750rpx;
+  height: 1000rpx;
+  background-color: #b9f8b9;
+}
