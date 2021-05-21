@@ -1,4 +1,4 @@
-.btn1 {
+/* .btn1 {
   width: 60%;
   margin-top: 20rpx;
   background-color: #e6e6e6;
@@ -19,4 +19,24 @@
 .btn1::after {
   border-radius: 98rpx;
   border: 0; 
+} */
+
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 100px;
 }

@@ -33,6 +33,12 @@
         {
           "name": "pages/updateOffer/updateOffer",
           "pathName": "pages/updateOffer/updateOffer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/newOffer/newOffer",
+          "pathName": "pages/newOffer/newOffer",
           "scene": null
         }
       ]

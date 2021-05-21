@@ -12,8 +12,7 @@ exports.main = async (event, context) => {
       company: event.company,
       position: event.position,
       status: event.status,
-      date_time: event.date_time,
-      message: event.message,
+      date_time: event.date_time
     }).remove();
   }catch(e){
     console.error(e);

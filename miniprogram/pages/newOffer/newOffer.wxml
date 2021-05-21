@@ -1,0 +1,40 @@
+<view class="greenbox"></view>
+<view class="greenbox"></view>
+
+<van-row class="cell-white-title">
+  Offer Line
+  <van-col offset="20" span="4" class="">
+    <van-icon bindtap="" name="upgrade" color="green" size="50rpx" />
+  </van-col>
+</van-row>
+
+<van-cell-group>
+
+  <view class="lightgreenbox"></view>
+  <view class="widthView"> 
+    <van-field required value="{{ company }}" label="公司" placeholder="请输入公司名称" bind:change="onCompanyChange">
+    </van-field>
+    <van-field required value="{{ position }}" label="岗位" placeholder="请输入岗位名称" bind:change="onPositionChange">
+    </van-field>
+  </view>
+
+  <view class="lightgreenbox"></view>
+
+  <view class="widthView">
+  <van-field required value="{{ status }}" label="状态" placeholder="请选择流程状态" bind:change="onStatusChange">
+  </van-field>
+  <van-field required value="{{ date_time }}" label="时间节点" placeholder="请选择对应时间节点" bind:change="onDateTimeChange">
+  </van-field>
+</view>
+<view class="lightgreenbox"></view>
+
+  <van-field label="备注" value="{{ message }}" type="textarea" show-confirm-bar="true" placeholder="请输入备注" autosize bind:change="onMessageChange"/>
+</van-cell-group>
+
+<view class="lightgreenbox"></view>
+<view class="whitebox"></view>
+
+<button class='btn1' bindtap="saveOfferInformation">
+  <image class='btnImg' src='../../images/确认 绿.png'></image>
+  <text space="nbsp">  保存流程</text>
+</button>

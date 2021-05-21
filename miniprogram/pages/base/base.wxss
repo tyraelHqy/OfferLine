@@ -1,21 +1,43 @@
-/* pages/base/base.wxss */
-
-
 .box {
   width: 750rpx;
   height: 30rpx;
+  overflow-x: hidden;
   background-color: #b9f8b9;
+}
+
+.greenbox{
+  width: 750rpx;
+  height: 30rpx;
+  overflow-x: hidden;
+  background-color: green;
+}
+
+.lightgreenbox{
+  width: 750rpx;
+  height: 10rpx;
+  overflow-x: hidden;
+  background-color: #e2f7e2;
 }
 
 .whitebox {
   width: 750rpx;
   height: 10rpx;
+  overflow-x: hidden;
   background-color: #f6f6f6;
 }
 
 
+
 .cell-title {
   color: green !important;
+  font-size: 40rpx !important;
+  text-align: center;
+  font-weight: bold;
+}
+
+.cell-white-title{
+  color: white !important;
+  background-color: green;
   font-size: 40rpx !important;
   text-align: center;
   font-weight: bold;
@@ -28,6 +50,7 @@
 }
 
 .cell-value {
+  width: 25%;
   color: black !important;
   font-size: 28rpx !important;
   text-align: center;
@@ -47,4 +70,38 @@
   width: 750rpx;
   height: 1000rpx;
   background-color: #b9f8b9;
+}
+
+.floatingborder{
+  width: 650rpx;
+  position: absolute;
+  top: 140rpx;
+  left: 50rpx;
+  overflow-x: hidden;
+  background-color: #e2f7e2;
+  color: green;
+  border-radius: 30rpx;
+  display: table-cell;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.widthView{
+  width:750rpx;
+  padding: 10rpx;
+  position: relative;
+  vertical-align: middle;
+  height:100rpx;
+  background-color: #e2f7e2;
+  color: black;
+  border-radius: 40rpx;
+  display:table-cell;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btnImg {
+  width: 50rpx;
+  height: 50rpx;
 }

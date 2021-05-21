@@ -1,4 +1,4 @@
-<view> 云数据库 </view>
+<!-- <view> 云数据库 </view>
 <button class="btn1" bindtap="insert">插入数据</button>
 <button class="btn1" bindtap="update">更新数据</button>
 <button class="btn1" bindtap="search">查找数据</button>
@@ -15,4 +15,36 @@
 <block  wx:for="{{images}}">
   <image src="{{item.fileID}}"></image>
   <button size="mini" data-fileID="{{item.fileID}}" bindtap="downloadFile"> 文件下载 </button>
-</block>
+</block> -->
+
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+  <view class="usermotto">
+    <!-- <image src="../../images/狗狗敲代码.gif"/> -->
+    <image
+      src="../../images/狗狗敲代码.gif?"
+ />
+
+  </view>
+</view>

@@ -1,45 +1,50 @@
-<view class="whitebox"></view>
-<view class="whitebox"></view>
+<view class="greenbox"></view>
+<view class="greenbox"></view>
 
-<van-row class="cell-title">
-  Offer Line
-  <van-col offset="20" span="4">
-    <van-icon bindtap="createInformation" name="plus" color="green" size="50rpx" />
-  </van-col>
+<van-row class="cell-white-title">
+  <van-row>
+    <van-col offset="8" span="8">Offer Line</van-col>
+    <van-col offset="21" span="4">
+      <van-icon bindtap="" name="plus" color="white" size="5rpx" />
+    </van-col>
 </van-row>
-<view class="line"></view>
-<view class="box"></view>
-<view class="line"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<van-row gutter="20">
-  <van-col class="cell-title" span="8">
-    <text class="righttext">共有流程 </text>
-    <view class="whitebox"></view>
-    <text> {{NumberProcess}}</text>
-    <view class="whitebox"></view>
-    <text class="righttext" decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项</text>
-  </van-col>
-  <van-col class="cell-title" span="8">
-    <text class="righttext">共获得Offer</text>
-    <view class="whitebox"></view>
-    <text> {{OfferNumber}}</text>
-    <view class="whitebox"></view>
-    <text class="righttext" decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项</text>
-  </van-col>
-  <van-col class="cell-title" span="8">
-    <text class="righttext">进行中流程</text>
-    <view class="whitebox"></view>
-    <text> {{BeingNumber}}</text>
-    <view class="whitebox"></view>
-    <text class="righttext" decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项</text>
-  </van-col>
 
 </van-row>
-<view class="line"></view>
-<view class="box"></view>
-<view class="line"></view>
+<view class="greenbox"></view>
+
+<view class="floatingborder">
+  <van-row gutter="20">
+    <van-col class="cell-title" span="8">
+      <text class="righttext">共有流程项 </text>
+      <view class="lightgreenbox"></view>
+      <text> {{NumberProcess}}</text>
+      <view class="whitebox"></view>
+    </van-col>
+    <van-col class="cell-title" span="8">
+      <text class="righttext">获得Offer数</text>
+      <view class="lightgreenbox"></view>
+      <text> {{OfferNumber}}</text>
+      <view class="whitebox"></view>
+    </van-col>
+    <van-col class="cell-title" span="8">
+      <text class="righttext">进行中流程</text>
+      <view class="lightgreenbox"></view>
+      <text> {{BeingNumber}}</text>
+      <view class="whitebox"></view>
+    </van-col>
+  </van-row>
+</view>
+
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
 <view class="whitebox"></view>
 
 <van-row gutter="20">
@@ -50,10 +55,9 @@
   <van-col class="cell-title" span="6">备注</van-col>
 </van-row>
 <view class="whitebox"></view>
-<view class="line"></view>
-<view class="box"></view>
-
-<view class="line"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<view class="whitebox"></view>
 <view class="whitebox"></view>
 
 <block wx:for="{{OfferInformation}}" wx:key="index" >
@@ -75,9 +79,8 @@
   </van-row>
 
   <view class="whitebox"></view>
-  <view class="line"></view>
-  <view class="box"></view>
-  <view class="line"></view>
   <view class="whitebox"></view>
-  
+
+  <view class="whitebox"></view>
+  <view class="whitebox"></view>
 </block>

@@ -2,7 +2,8 @@
   "pages": [
     "pages/base/base",
     "pages/cloud/cloud",
-    "pages/editOffer/editOffer"
+    "pages/editOffer/editOffer",
+    "pages/newOffer/newOffer"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -18,13 +19,18 @@
       {
       "pagePath": "pages/base/base",
       "text": "MyOffer",
-      "iconPath": "images/profile.png",
-      "selectedIconPath": "images/profile-actived.png"
+      "iconPath": "images/我的 黑.png",
+      "selectedIconPath": "images/我的 绿.png"
+      },{
+        "pagePath": "pages/newOffer/newOffer",
+        "text": "新增Offer",
+        "iconPath": "images/新增 黑.png",
+        "selectedIconPath": "images/新增 墨绿.png"
       },{
         "pagePath": "pages/cloud/cloud",
         "text": "分享Offer",
-        "iconPath": "images/film.png",
-        "selectedIconPath": "images/film-actived.png"
+        "iconPath": "images/Offer分享社群 黑.png",
+        "selectedIconPath": "images/Offer分享社群 绿.png"
       }
     ]
   },
@@ -35,5 +41,6 @@
     "van-icon": "vant-weapp/icon/index",
     "van-col": "vant-weapp/col/index",
     "van-toast": "vant-weapp/toast/index"
-  }
+  },
+  "cloud": true
 }
