@@ -1,5 +1,5 @@
 const db = wx.cloud.database(); // 初始化数据库
-
+var util = require('../utils/utils.js');
 Page({
   data: {
     index: '',
@@ -135,142 +135,45 @@ Page({
     var currentDay = this.data.currentDay;
     var currentMonth = this.data.currentMonth;
     var currentYear = this.data.currentYear;
-    console.log("currentday:" + currentMonth, currentYear, currentDay);
+    var currentDate = currentYear+"-"+currentMonth+"-"+currentDay;
+    console.log("currentday:"+currentDate);
 
-    var bishiYear = this.data.bishi_date.split("-")[0];
-    var bishiMonth = this.data.bishi_date.split("-")[1];
-    var bishiDay = this.data.bishi_date.split("-")[2];
-    console.log("currentday:" + bishiYear, bishiMonth, bishiDay);
-
-    var yimianYear = this.data.yimian_date.split("-")[0];
-    var yimianMonth = this.data.yimian_date.split("-")[1];
-    var yimianDay = this.data.yimian_date.split("-")[2];
-    console.log("currentday:" + yimianYear, yimianMonth, yimianDay);
-
-    var ermianYear = this.data.ermian_date.split("-")[0];
-    var ermianMonth = this.data.ermian_date.split("-")[1];
-    var ermianDay = this.data.ermian_date.split("-")[2];
-
-    var sanmianYear = this.data.sanmian_date.split("-")[0];
-    var sanmianMonth = this.data.sanmian_date.split("-")[1];
-    var sanmianDay = this.data.sanmian_date.split("-")[2];
-
-    var simianYear = this.data.simian_date.split("-")[0];
-    var simianMonth = this.data.simian_date.split("-")[1];
-    var simianDay = this.data.simian_date.split("-")[2];
-
-    var hrmianYear = this.data.hrmian_date.split("-")[0];
-    var hrmianMonth = this.data.hrmian_date.split("-")[1];
-    var hrmianDay = this.data.hrmian_date.split("-")[2];
-
-    var OfferGetYear = this.data.OfferGet_date.split("-")[0];
-    var OfferGetMonth = this.data.OfferGet_date.split("-")[1];
-    var OfferGetDay = this.data.OfferGet_date.split("-")[2];
-
-    if (OfferGetYear < currentYear) {
+    if(util.compareDate(this.data.OfferGet_date,currentDate)){
+      console.log("OfferGet_date——"+OfferGet_date+" 的日期小于 "+ currentDate);
       this.setData({
-        stepsActiveIndex: 6,
-        status_index: 6,
+        stepsActiveIndex:6,
+        status_index:6,
       })
-    } else if (OfferGetMonth < currentMonth) {
+    }
+    else if(util.compareDate(this.data.hrmian_date,currentDate)){
       this.setData({
-        stepsActiveIndex: 6,
-        status_index: 6,
+        stepsActiveIndex:5,
+        status_index:5,
       })
-    } else if (OfferGetDay < currentDay) {
+    }else if(util.compareDate(this.data.simian_date,currentDate)){
       this.setData({
-        stepsActiveIndex: 6,
-        status_index: 6,
+        stepsActiveIndex:4,
+        status_index:4,
       })
-    } else if (hrmianYear < currentYear) {
+    }else if(util.compareDate(this.data.sanmian_date,currentDate)){
       this.setData({
-        stepsActiveIndex: 5,
-        status_index: 5,
+        stepsActiveIndex:3,
+        status_index:3,
       })
-    } else if (hrmianMonth < currentMonth) {
+    }else if(util.compareDate(this.data.ermian_date,currentDate)){
       this.setData({
-        stepsActiveIndex: 5,
-        status_index: 5,
+        stepsActiveIndex:2,
+        status_index:2,
       })
-    } else if (hrmianDay < currentDay) {
+    }else if(util.compareDate(this.data.yimian_date,currentDate)){
       this.setData({
-        stepsActiveIndex: 5,
-        status_index: 5,
+        stepsActiveIndex:1,
+        status_index:1,
       })
-    } else if (simianYear < currentYear) {
+    }else{
       this.setData({
-        stepsActiveIndex: 4,
-        status_index: 4,
-      })
-    } else if (simianMonth < currentMonth) {
-      this.setData({
-        stepsActiveIndex: 4,
-        status_index: 4,
-      })
-    } else if (simianDay < currentDay) {
-      this.setData({
-        stepsActiveIndex: 4,
-        status_index: 4,
-      })
-    } else if (sanmianYear < currentYear) {
-      this.setData({
-        stepsActiveIndex: 3,
-        status_index: 3,
-      })
-    } else if (sanmianMonth < currentMonth) {
-      this.setData({
-        stepsActiveIndex: 3,
-        status_index: 3,
-      })
-    } else if (sanmianDay < currentDay) {
-      this.setData({
-        stepsActiveIndex: 3,
-        status_index: 3,
-      })
-    } else if (ermianYear < currentYear) {
-      this.setData({
-        stepsActiveIndex: 2,
-        status_index: 2,
-      })
-    } else if (ermianMonth < currentMonth) {
-      this.setData({
-        stepsActiveIndex: 2,
-        status_index: 2,
-      })
-    } else if (ermianDay < currentDay) {
-      this.setData({
-        stepsActiveIndex: 2,
-        status_index: 2,
-      })
-    } else if (yimianYear < currentYear) {
-      this.setData({
-        stepsActiveIndex: 1,
-        status_index: 1,
-      })
-    } else if (yimianMonth < currentMonth) {
-      this.setData({
-        stepsActiveIndex: 1,
-        status_index: 1,
-      })
-    } else if (yimianDay < currentDay) {
-      this.setData({
-        stepsActiveIndex: 1,
-        status_index: 1,
-      })
-    } else if (bishiYear < currentYear) {
-      this.setData({
-        stepsActiveIndex: 0,
-        status_index: 0,
-      })
-    } else if (bishiMonth < currentMonth) {
-      this.setData({
-        stepsActiveIndex: 0,
-        status_index: 0,
-      })
-    } else {
-      this.setData({
-        stepsActiveIndex: 0,
-        status_index: 0,
+        stepsActiveIndex:0,
+        status_index:0,
       })
     }
     db.collection('offerinformations').add({

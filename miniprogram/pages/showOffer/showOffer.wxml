@@ -1,0 +1,49 @@
+<view class="greenbox"></view>
+<view class="greenbox"></view>
+<van-row class="cell-white-title">
+  Offer详情
+  <van-col offset="20" span="4" class="">
+    <van-icon bindtap="" name="upgrade" color="green"  />
+  </van-col>
+</van-row>
+
+<view class='saveButton'  bindtap="editOfferInformation">
+  <image class='btnSaveImg' src='../../images/修改 黑.png'></image>
+</view>
+
+<van-cell-group>
+
+  <view class="lightgreenbox"></view>
+  <view class="widthView">
+    <van-field required disabled label="公司" value="{{ company }}" placeholder="请输入公司名称" bind:change="onCompanyChange">
+    </van-field>
+    <van-field required disabled label="岗位" value="{{ position }}" placeholder="请输入岗位名称" bind:change="onPositionChange">
+    </van-field>
+  </view>
+  <view class="lightgreenbox"></view>
+  <van-field value="{{ message }}" label="备注" type="textarea" disabled placeholder="请输入备注" autosize
+    bind:change="onMessageChange" />
+
+  <view class="lightgreenbox"></view>
+  <view class="StepsUI">
+    <van-steps class="StepsUI" steps="{{ steps }}" active="{{status_index}}" active-icon="success" direction="vertical"
+      active-color="green" bind:click-step="clickstep" />
+  </view>
+
+  <view class="whitebox"></view>
+  <view class="whitebox"></view>
+  <view class="whitebox"></view>
+
+</van-cell-group>
+
+<view class="whitebox"></view>s
+<view class="whitebox"></view>
+<view class="whitebox"></view>
+<button class='btn1' bindtap="editOfferInformation">
+  <image class='btnImg' src='../../images/修改 黑.png'></image>
+  <text space="nbsp"> 编辑Offer</text>
+</button>
+<button class='btn2' bindtap="deleteOfferInformation">
+  <image class='btnImg' src='../../images/删除 红.png'></image>
+  <text space="nbsp"> 删除Offer</text>
+</button>

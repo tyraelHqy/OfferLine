@@ -25,16 +25,6 @@
     bind:change="onMessageChange" />
 
   <view class="lightgreenbox"></view>
-  <view class="StepsUI">
-    <van-steps class="StepsUI" steps="{{ steps }}" active="{{stepsActiveIndex}}" active-icon="success" direction="vertical"
-      active-color="green" bind:click-step="clickstep" />
-  </view>
-
-  <view class="whitebox"></view>
-  <view class="whitebox"></view>
-  <view class="whitebox"></view>
-
-  <view class="lightgreenbox"></view>
   <view class="widthView">
     <van-cell-group>
       <van-field value="{{status_array[bishi_id]}}" label="流程状态" disabled border="{{ false }}"></van-field>

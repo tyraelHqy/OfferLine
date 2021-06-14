@@ -52,7 +52,7 @@ Page({
   editOfferInformation:function(e) {
     var $data = e.currentTarget.dataset;
     wx.navigateTo({
-      url: '../editOffer/editOffer?company='+$data.bean.company+'&position='+$data.bean.position+'&status='+$data.bean.status+'&date_time='+$data.bean.date_time+'&message='+$data.bean.message+'&_id='+$data.bean._id+'&bishi_date='+$data.bean.bishi_date+'&yimian_date='+$data.bean.yimian_date+'&ermian_date='+$data.bean.ermian_date+'&sanmian_date='+$data.bean.sanmian_date+'&simian_date='+$data.bean.simian_date+'&hrmian_date='+$data.bean.hrmian_date+'&OfferGet_date='+$data.bean.OfferGet_date
+      url: '../showOffer/showOffer?company='+$data.bean.company+'&position='+$data.bean.position+'&status='+$data.bean.status+'&date_time='+$data.bean.date_time+'&message='+$data.bean.message+'&_id='+$data.bean._id+'&bishi_date='+$data.bean.bishi_date+'&yimian_date='+$data.bean.yimian_date+'&ermian_date='+$data.bean.ermian_date+'&sanmian_date='+$data.bean.sanmian_date+'&simian_date='+$data.bean.simian_date+'&hrmian_date='+$data.bean.hrmian_date+'&OfferGet_date='+$data.bean.OfferGet_date+'&stepsActiveIndex='+$data.bean.status_index
       // url: '../editOffer/editOffer'
     })
     console.log('../editOffer/editOffer?company='+$data.bean.company+'&position='+$data.bean.position+'&status='+$data.bean.status+'&date_time='+$data.bean.date_time+'&message='+$data.bean.message+'&_id='+$data.bean._id)

@@ -39,6 +39,13 @@
         {
           "name": "pages/newOffer/newOffer",
           "pathName": "pages/newOffer/newOffer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/showOffer/showOffer",
+          "pathName": "pages/showOffer/showOffer",
+          "query": "",
           "scene": null
         }
       ]

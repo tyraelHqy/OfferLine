@@ -32,134 +32,44 @@ Page({
     _id: '',
     steps: [{
         text: '笔试',
-        desc: '2022-05-23',
+        desc: '2021-05-23',
       },
       {
         text: '一面',
-        desc: '2022-05-27',
+        desc: '2021-05-27',
       },
       {
         text: '二面',
-        desc: '2022-06-02',
+        desc: '2021-06-02',
       },
       {
         text: '三面',
-        desc: '2022-06-15',
+        desc: '2021-06-15',
       },
       {
         text: '四面',
-        desc: '2022-06-23',
+        desc: '2021-06-23',
       },
       {
         text: 'hr面',
-        desc: '2022-06-25',
+        desc: '2021-06-25',
       },
       {
         text: 'Offer Get！',
-        desc: '2022-06-25',
+        desc: '2021-06-25',
       },
     ],
   },
 
-  bindStatusPickerChange: function (e) {
-    console.log('status发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
+  editOfferInformation: function (e){
+    var $data = this.data;
+    console.log($data);
+    wx.navigateTo({
+      url: '../editOffer/editOffer?company='+$data.company+'&position='+$data.position+'&status='+$data.status+'&date_time='+$data.date_time+'&message='+$data.message+'&_id='+$data._id+'&bishi_date='+$data.bishi_date+'&yimian_date='+$data.yimian_date+'&ermian_date='+$data.ermian_date+'&sanmian_date='+$data.sanmian_date+'&simian_date='+$data.simian_date+'&hrmian_date='+$data.hrmian_date+'&OfferGet_date='+$data.OfferGet_date
+      // url: '../editOffer/editOffer'
     })
+    console.log('../editOffer/editOffer?company='+$data.company+'&position='+$data.position+'&status='+$data.status+'&date_time='+$data.date_time+'&message='+$data.message+'&_id='+$data._id)
   },
-
-
-  bindDateChange: function (e) {
-    console.log('date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      date: e.detail.value
-    })
-  },
-
-  bindBiShiDateChange: function (e) {
-    console.log('笔试date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      bishi_date: e.detail.value
-    })
-  },
-
-  bindYiMianDateChange: function (e) {
-    console.log('一面date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      yimian_date: e.detail.value
-    })
-  },
-
-  bindErMianDateChange: function (e) {
-    console.log('二面date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      ermian_date: e.detail.value
-    })
-  },
-
-  bindSanMianDateChange: function (e) {
-    console.log('三面date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      sanmian_date: e.detail.value
-    })
-  },
-
-  bindSiMianDateChange: function (e) {
-    console.log('四面date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      simian_date: e.detail.value
-    })
-  },
-
-  bindHrMianDateChange: function (e) {
-    console.log('hr面试date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      hrmian_date: e.detail.value
-    })
-  },
-
-  bindOfferGetDateChange: function (e) {
-    console.log('OfferGetdate发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      OfferGet_date: e.detail.value
-    })
-  },
-
-  onCompanyChange(event) {
-    // event.detail 为当前输入的值
-    console.log(event);
-    this.data.company = event.detail;
-    console.log(this.data.company);
-  },
-
-  onPositionChange(event) {
-    // event.detail 为当前输入的值
-    console.log(event);
-    this.data.position = event.detail;
-    console.log(this.data.position);
-  },
-
-  onStatusChange(event) {
-    // event.detail 为当前输入的值
-    console.log(event);
-    this.data.status = event.detail;
-    console.log(this.data.status);
-  },
-
-  onDateTimeChange(event) {
-    // event.detail 为当前输入的值
-    console.log(event);
-    this.data.date_time = event.detail;
-    console.log(this.data.date_time);
-  },
-
-  onMessageChange(event) {
-    // event.detail 为当前输入的值
-    console.log(event);
-    this.data.message = event.detail;
-    console.log(this.data.company);
-  },
-
   saveOfferInformation: function () {
     var currentDay = this.data.currentDay;
     var currentMonth = this.data.currentMonth;
@@ -331,141 +241,45 @@ Page({
       currentYear:myDate.getFullYear(),
       currentMonth:myDate.getMonth()+1,
       currentDay:myDate.getDate(),
+      stepsActiveIndex: options.stepsActiveIndex,
     })
     var currentDay = this.data.currentDay;
     var currentMonth = this.data.currentMonth;
     var currentYear = this.data.currentYear;
-    console.log("currentday:"+currentMonth,currentYear,currentDay);
+    var currentDate = currentYear+"-"+currentMonth+"-"+currentDay;
+    console.log("currentday:"+currentDate);
 
-    var bishiYear = this.data.bishi_date.split("-")[0];
-    var bishiMonth = this.data.bishi_date.split("-")[1];
-    var bishiDay = this.data.bishi_date.split("-")[2];
-    console.log("currentday:"+bishiYear,bishiMonth,bishiDay);
-
-    var yimianYear = this.data.yimian_date.split("-")[0];
-    var yimianMonth = this.data.yimian_date.split("-")[1];
-    var yimianDay = this.data.yimian_date.split("-")[2];
-    console.log("currentday:"+yimianYear,yimianMonth,yimianDay);
-    
-    var ermianYear = this.data.ermian_date.split("-")[0];
-    var ermianMonth = this.data.ermian_date.split("-")[1];
-    var ermianDay = this.data.ermian_date.split("-")[2];
-    
-    var sanmianYear = this.data.sanmian_date.split("-")[0];
-    var sanmianMonth = this.data.sanmian_date.split("-")[1];
-    var sanmianDay = this.data.sanmian_date.split("-")[2];
-    
-    var simianYear = this.data.simian_date.split("-")[0];
-    var simianMonth = this.data.simian_date.split("-")[1];
-    var simianDay = this.data.simian_date.split("-")[2];
-    
-    var hrmianYear = this.data.hrmian_date.split("-")[0];
-    var hrmianMonth = this.data.hrmian_date.split("-")[1];
-    var hrmianDay = this.data.hrmian_date.split("-")[2];
-    
-    var OfferGetYear = this.data.OfferGet_date.split("-")[0];
-    var OfferGetMonth = this.data.OfferGet_date.split("-")[1];
-    var OfferGetDay = this.data.OfferGet_date.split("-")[2];
-
-    if(OfferGetYear<currentYear){
+    if(util.compareDate(this.data.OfferGet_date,currentDate)){
+      console.log("OfferGet_date——"+OfferGet_date+" 的日期小于 "+ currentDate);
       this.setData({
         stepsActiveIndex:6,
         status_index:6,
       })
-    }else if(OfferGetMonth<currentMonth){
-      this.setData({
-        stepsActiveIndex:6,
-        status_index:6,
-      })
-    }else if(OfferGetDay<currentDay){
-      this.setData({
-        stepsActiveIndex:6,
-        status_index:6,
-      })
-    }else if(hrmianYear<currentYear){
+    }
+    else if(util.compareDate(this.data.hrmian_date,currentDate)){
       this.setData({
         stepsActiveIndex:5,
         status_index:5,
       })
-    }else if(hrmianMonth<currentMonth){
-      this.setData({
-        stepsActiveIndex:5,
-        status_index:5,
-      })
-    }else if(hrmianDay<currentDay){
-      this.setData({
-        stepsActiveIndex:5,
-        status_index:5,
-      })
-    }else if(simianYear<currentYear){
+    }else if(util.compareDate(this.data.simian_date,currentDate)){
       this.setData({
         stepsActiveIndex:4,
         status_index:4,
       })
-    }else if(simianMonth<currentMonth){
-      this.setData({
-        stepsActiveIndex:4,
-        status_index:4,
-      })
-    }else if(simianDay<currentDay){
-      this.setData({
-        stepsActiveIndex:4,
-        status_index:4,
-      })
-    }else if(sanmianYear<currentYear){
+    }else if(util.compareDate(this.data.sanmian_date,currentDate)){
       this.setData({
         stepsActiveIndex:3,
         status_index:3,
       })
-    }else if(sanmianMonth<currentMonth){
-      this.setData({
-        stepsActiveIndex:3,
-        status_index:3,
-      })
-    }else if(sanmianDay<currentDay){
-      this.setData({
-        stepsActiveIndex:3,
-        status_index:3,
-      })
-    }else if(ermianYear<currentYear){
+    }else if(util.compareDate(this.data.ermian_date,currentDate)){
       this.setData({
         stepsActiveIndex:2,
         status_index:2,
       })
-    }else if(ermianMonth<currentMonth){
-      this.setData({
-        stepsActiveIndex:2,
-        status_index:2,
-      })
-    }else if(ermianDay<currentDay){
-      this.setData({
-        stepsActiveIndex:2,
-        status_index:2,
-      })
-    }else if(yimianYear<currentYear){
+    }else if(util.compareDate(this.data.yimian_date,currentDate)){
       this.setData({
         stepsActiveIndex:1,
         status_index:1,
-      })
-    }else if(yimianMonth<currentMonth){
-      this.setData({
-        stepsActiveIndex:1,
-        status_index:1,
-      })
-    }else if(yimianDay<currentDay){
-      this.setData({
-        stepsActiveIndex:1,
-        status_index:1,
-      })
-    }else if(bishiYear<currentYear){
-      this.setData({
-        stepsActiveIndex:0,
-        status_index:0,
-      })
-    }else if(bishiMonth<currentMonth){
-      this.setData({
-        stepsActiveIndex:0,
-        status_index:0,
       })
     }else{
       this.setData({

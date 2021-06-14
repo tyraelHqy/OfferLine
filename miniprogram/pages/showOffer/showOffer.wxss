@@ -1,0 +1,220 @@
+
+.box {
+  width: 750rpx;
+  height: 30rpx;
+  background-color: #b9f8b9;
+}
+
+.whitebox {
+  width: 750rpx;
+  height: 10rpx;
+  background-color: white;
+}
+
+.cell-title {
+  color: green !important;
+  font-size: 40rpx !important;
+  text-align: center;
+  font-weight: bold;
+}
+
+.righttext {
+  color: black !important;
+  font-size: 30rpx !important;
+  text-align: right;
+}
+
+.cell-value {
+  color: black !important;
+  font-size: 28rpx !important;
+  text-align: center;
+}
+
+.border-top-row {
+  border-top: #ccc solid 2rpx;
+}
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: #aaa;
+}
+
+.hugebox {
+  width: 750rpx;
+  height: 1000rpx;
+  background-color: #b9f8b9;
+}
+
+
+.bottombutton{
+  width: 750rpx;
+  height: 100rpx;
+}
+
+.btn1 {
+  width: 60%;
+  margin-top: 20rpx;
+  background-color: #e6e6e6;
+  color: green;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnImg {
+  margin-right: 8rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.btn1::after {
+  border-radius: 98rpx;
+  border: 0; 
+}
+
+
+.btn2 {
+  width: 60%;
+  margin-top: 20rpx;
+  background-color: #e6e6e6;
+  color: rgba(255, 0, 0, 0.726);
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn2::after {
+  border-radius: 98rpx;
+  border: 0; 
+}
+
+.floatingborder{
+  width: 650rpx;
+  position: absolute;
+  top: 140rpx;
+  left: 50rpx;
+  background-color: #e2f7e2;
+  color: green;
+  border-radius: 30rpx;
+  display: table-cell;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.greenbox{
+  width: 750rpx;
+  height: 30rpx;
+  background-color: green;
+}
+
+.lightgreenbox{
+  width: 750rpx;
+  height: 30rpx;
+  background-color: #e2f7e2;
+
+}
+
+.widthView{
+  width:750rpx;
+  padding: 10rpx;
+  position: relative;
+  vertical-align: middle;
+  height:100rpx;
+  background-color: #e2f7e2;
+  color: black;
+  display:table-cell;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.input11{
+  background-color: e2f7e2;
+}
+
+.cell-white-title{
+  color: white !important;
+  position: relative;
+  background-color: green;
+  font-size: 40rpx !important;
+  text-align: center;
+  font-weight: bold;
+}
+.StepsUI{
+  width:90%;
+  margin-left: 10%;
+  background-color: white;
+}
+
+.picker{
+    padding: 13px;
+    font-size: 29rpx;
+    background-color: #FFFFFF;
+}
+
+
+/*选项*/
+.option-item{
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+/*选项 文本框*/
+.option-item input{
+  width:80%;
+  height: 60rpx;
+  font-size: 28rpx;
+  color:#000000;
+  padding-left: 20rpx;
+}
+/*选项 图片*/
+.img{
+  width:46rpx;
+  height: 46rpx;
+  margin-left: 20rpx;
+}
+.add-option-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60rpx;
+}
+/*添加选项*/
+.btnText{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color:#78a2f0;
+  padding-left: 20rpx;
+}
+.add-status-view{
+  width:90%;
+  margin-left: 10%;
+  background-color: white;
+}
+.status-box{
+  width:90%;
+  margin-left: 10%;
+  background-color: white;
+}
+
+.saveButton{
+  /* height: 80rpx;
+  width: 80rpx; */
+  position: fixed;
+  top: 200rpx;
+  right: 30rpx;
+  z-index:300;
+}
+
+.btnSaveImg {
+  margin-right: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
