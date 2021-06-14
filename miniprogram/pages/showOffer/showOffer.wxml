@@ -26,7 +26,7 @@
 
   <view class="lightgreenbox"></view>
   <view class="StepsUI">
-    <van-steps class="StepsUI" steps="{{ steps }}" active="{{status_index}}" active-icon="success" direction="vertical"
+    <van-steps class="StepsUI" steps="{{ steps }}" active="{{stepsActiveIndex}}" active-icon="success" direction="vertical"
       active-color="green" bind:click-step="clickstep" />
   </view>
 

@@ -109,9 +109,14 @@ Page({
         stepsActiveIndex:1,
         status_index:1,
       })
-    }else{
+    }else if(util.compareDate(this.data.bishi_date,currentDate)){
       this.setData({
         stepsActiveIndex:0,
+        status_index:0,
+      })
+    }else {
+      this.setData({
+        stepsActiveIndex:-1,
         status_index:0,
       })
     }
@@ -281,9 +286,14 @@ Page({
         stepsActiveIndex:1,
         status_index:1,
       })
-    }else{
+    }else if(util.compareDate(this.data.bishi_date,currentDate)){
       this.setData({
         stepsActiveIndex:0,
+        status_index:0,
+      })
+    }else {
+      this.setData({
+        stepsActiveIndex:-1,
         status_index:0,
       })
     }
