@@ -51,7 +51,7 @@
   <view class="whitebox"></view>
   <van-col class="cell-title" span="6">公司</van-col>
   <van-col class="cell-title" span="6">岗位</van-col>
-  <van-col class="cell-title" span="6">状态</van-col>
+  <van-col class="cell-title" span="6">最新状态</van-col>
   <van-col class="cell-title" span="6">备注</van-col>
 </van-row>
 <view class="whitebox"></view>
@@ -70,7 +70,7 @@
         {{item.position}}
       </van-col>
       <van-col class="cell-value" span="6">
-        {{item.status}}
+        {{status_array[item.status_index]}}
       </van-col>
       <van-col class="cell-value" span="6">
         {{item.message}}

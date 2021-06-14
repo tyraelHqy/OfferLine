@@ -17,20 +17,20 @@
     "selectedColor": "#008020",
     "list": [
       {
-      "pagePath": "pages/base/base",
-      "text": "MyOffer",
-      "iconPath": "images/我的 黑.png",
-      "selectedIconPath": "images/我的 绿.png"
+        "pagePath": "pages/cloud/cloud",
+        "text": "社区",
+        "iconPath": "images/Offer分享社群 黑.png",
+        "selectedIconPath": "images/Offer分享社群 绿.png"
       },{
         "pagePath": "pages/newOffer/newOffer",
         "text": "新增Offer",
         "iconPath": "images/新增 黑.png",
         "selectedIconPath": "images/新增 墨绿.png"
       },{
-        "pagePath": "pages/cloud/cloud",
-        "text": "分享Offer",
-        "iconPath": "images/Offer分享社群 黑.png",
-        "selectedIconPath": "images/Offer分享社群 绿.png"
+        "pagePath": "pages/base/base",
+        "text": "我的",
+        "iconPath": "images/我的 黑.png",
+        "selectedIconPath": "images/我的 绿.png"
       }
     ]
   },

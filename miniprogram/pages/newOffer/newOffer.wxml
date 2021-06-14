@@ -1,40 +1,143 @@
 <view class="greenbox"></view>
 <view class="greenbox"></view>
-
 <van-row class="cell-white-title">
-  Offer Line
+  新增Offer
   <van-col offset="20" span="4" class="">
     <van-icon bindtap="" name="upgrade" color="green" size="50rpx" />
   </van-col>
 </van-row>
 
+
+<view class='saevButton'  bindtap="saveOfferInformation">
+  <image class='btnSaveImg' src='../../images/确认 绿.png'></image>
+</view>
+
+
 <van-cell-group>
 
   <view class="lightgreenbox"></view>
-  <view class="widthView"> 
-    <van-field required value="{{ company }}" label="公司" placeholder="请输入公司名称" bind:change="onCompanyChange">
+  <view class="widthView">
+    <van-field required label="公司" value="{{ company }}" placeholder="请输入公司名称" bind:change="onCompanyChange">
     </van-field>
-    <van-field required value="{{ position }}" label="岗位" placeholder="请输入岗位名称" bind:change="onPositionChange">
+    <van-field required label="岗位" value="{{ position }}" placeholder="请输入岗位名称" bind:change="onPositionChange">
     </van-field>
   </view>
 
   <view class="lightgreenbox"></view>
 
-  <view class="widthView">
-  <van-field required value="{{ status }}" label="状态" placeholder="请选择流程状态" bind:change="onStatusChange">
-  </van-field>
-  <van-field required value="{{ date_time }}" label="时间节点" placeholder="请选择对应时间节点" bind:change="onDateTimeChange">
-  </van-field>
-</view>
-<view class="lightgreenbox"></view>
+  <van-field value="{{ message }}" label="备注" type="textarea" placeholder="请输入备注" autosize
+    bind:change="onMessageChange" />
 
-  <van-field label="备注" value="{{ message }}" type="textarea" show-confirm-bar="true" placeholder="请输入备注" autosize bind:change="onMessageChange"/>
+  <view class="lightgreenbox"></view>
+
+  <view class="widthView">
+    <van-cell-group>
+      <van-field value="{{status_array[bishi_id]}}" label="流程状态" disabled border="{{ false }}"></van-field>
+    </van-cell-group>
+    <view class="section">
+      <picker mode="date" value="{{bishi_date}}" start="2002-09-01" end="2112-09-01" bindchange="bindBiShiDateChange">
+        <view class="picker">
+          <text decode="{{true}}">对应时间 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{bishi_date}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="lightgreenbox"></view>
+  <view class="widthView">
+    <van-cell-group>
+      <van-field value="{{status_array[yimian_id]}}" label="流程状态" disabled border="{{ false }}"></van-field>
+    </van-cell-group>
+    <view class="section">
+      <picker mode="date" value="{{yimian_date}}" start="2002-09-01" end="2112-09-01" bindchange="bindYiMianDateChange">
+        <view class="picker">
+          <text decode="{{true}}">对应时间 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{yimian_date}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="lightgreenbox"></view>
+  <view class="widthView">
+    <van-cell-group>
+      <van-field value="{{status_array[ermian_id]}}" label="流程状态" disabled border="{{ false }}"></van-field>
+    </van-cell-group>
+    <view class="section">
+      <picker mode="date" value="{{ermian_date}}" start="2002-09-01" end="2112-09-01" bindchange="bindErMianDateChange">
+        <view class="picker">
+          <text decode="{{true}}">对应时间 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ermian_date}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="lightgreenbox"></view>
+  <view class="widthView">
+    <van-cell-group>
+      <van-field value="{{status_array[sanmian_id]}}" label="流程状态" disabled border="{{ false }}"></van-field>
+    </van-cell-group>
+    <view class="section">
+      <picker mode="date" value="{{sanmian_date}}" start="2002-09-01" end="2112-09-01"
+        bindchange="bindSanMianDateChange">
+        <view class="picker">
+          <text decode="{{true}}">对应时间 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{sanmian_date}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="lightgreenbox"></view>
+  <view class="widthView">
+    <van-cell-group>
+      <van-field value="{{status_array[simian_id]}}" label="流程状态" disabled border="{{ false }}"></van-field>
+    </van-cell-group>
+    <view class="section">
+      <picker mode="date" value="{{simian_date}}" start="2002-09-01" end="2112-09-01" bindchange="bindSiMianDateChange">
+        <view class="picker">
+          <text decode="{{true}}">对应时间 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{simian_date}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="lightgreenbox"></view>
+  <view class="widthView">
+    <van-cell-group>
+      <van-field value="{{status_array[hrmian_id]}}" label="流程状态" disabled border="{{ false }}"></van-field>
+    </van-cell-group>
+    <view class="section">
+      <picker mode="date" value="{{hrmian_date}}" start="2002-09-01" end="2112-09-01" bindchange="bindHrMianDateChange">
+        <view class="picker">
+          <text decode="{{true}}">对应时间 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{hrmian_date}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="lightgreenbox"></view>
+  <view class="widthView">
+    <van-cell-group>
+      <van-field value="{{status_array[OfferGet_id]}}" label="流程状态" disabled border="{{ false }}"></van-field>
+    </van-cell-group>
+    <view class="section">
+      <picker mode="date" value="{{OfferGet_date}}" start="2002-09-01" end="2112-09-01"
+        bindchange="bindOfferGetDateChange">
+        <view class="picker">
+          <text decode="{{true}}">对应时间 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{OfferGet_date}}</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="lightgreenbox"></view>
+  <view class="lightgreenbox"></view>
+  <view class="whitebox"></view>
+
 </van-cell-group>
 
-<view class="lightgreenbox"></view>
 <view class="whitebox"></view>
-
+<view class="whitebox"></view>
 <button class='btn1' bindtap="saveOfferInformation">
   <image class='btnImg' src='../../images/确认 绿.png'></image>
-  <text space="nbsp">  保存流程</text>
+  <text space="nbsp"> 增加Offer</text>
 </button>

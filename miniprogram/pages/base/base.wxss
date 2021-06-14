@@ -23,14 +23,14 @@
   width: 750rpx;
   height: 10rpx;
   overflow-x: hidden;
-  background-color: #f6f6f6;
+  background-color: white;
 }
 
 
 
 .cell-title {
   color: green !important;
-  font-size: 40rpx !important;
+  font-size: 39rpx !important;
   text-align: center;
   font-weight: bold;
 }
