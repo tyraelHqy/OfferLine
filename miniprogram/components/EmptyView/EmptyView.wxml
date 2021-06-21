@@ -1,0 +1,8 @@
+<view class="empty-content">
+
+  <image src='../../images/空白界面.png' mode="widthFix" />
+  <view wx:if="{{showInfo}}" class="info text-lg text-default">{{info}}</view>
+
+  <view wx:if="{{showInfo2}}" class="info text-lg text-default">{{info2}}</view>
+
+</view>

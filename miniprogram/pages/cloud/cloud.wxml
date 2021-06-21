@@ -1,50 +1,31 @@
-<!-- <view> 云数据库 </view>
-<button class="btn1" bindtap="insert">插入数据</button>
-<button class="btn1" bindtap="update">更新数据</button>
-<button class="btn1" bindtap="search">查找数据</button>
-<button class="btn1" bindtap="delete">删除数据</button>
+<view class="greenbox"></view>
+<view class="greenbox"></view>
 
-<view> 云函数 </view>
-<button class="btn1" bindtap="sum">调用云函数sum</button>
-<button class="btn1" bindtap="getOpenID">获取用户的openid</button>
-<button class="btn1" bindtap="deleteBatch">批量删除数据</button>
+<van-row class="cell-white-title">
+  <van-row>
+    <van-col offset="8" span="8">Offer社区</van-col>
+    <van-col offset="21" span="4">
+      <van-icon bindtap="" name="plus" color="white" size="5rpx" />
+    </van-col>
+  </van-row>
 
-<view> 云存储 </view>
-<button class="btn1" bindtap="uploadImage">上传图片</button>
-<button class="btn1" bindtap="getFile">文件展示</button>
-<block  wx:for="{{images}}">
-  <image src="{{item.fileID}}"></image>
-  <button size="mini" data-fileID="{{item.fileID}}" bindtap="downloadFile"> 文件下载 </button>
-</block> -->
+</van-row>
+<view class="greenbox"></view>
+<!-- <button bindtap="getOpenId">获取openid</button>
+<button bindtap="shouquan">获取用户授权</button>
+<button bindtap="sendOne">发送订阅消息给单个用户</button> -->
+<view class="floatingText">
+  <text>
+    公司、岗位、Timeline信息查询，以及 
+    最新职业招聘资讯;
 
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+    由于人手不够、经费不足，程序员小哥 
+    仍在用爱发电，秃头开发中; 
+    
+    敬请期待!
+  </text>
+</view>
 
-  <view class="usermotto">
-    <!-- <image src="../../images/狗狗敲代码.gif"/> -->
-    <image
-      src="../../images/狗狗敲代码.gif?"
- />
-
-  </view>
+<view class="floatingborder">
+  <image src="../../images/o-o-error.jpg" />
 </view>

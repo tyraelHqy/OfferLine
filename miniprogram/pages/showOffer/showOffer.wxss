@@ -1,8 +1,33 @@
+.add {
+  display: inline-block;
+  line-height: 60rpx;
+  padding: 0 12px;
+  color: white;
+  background: green;
+}
+
+.box {
+  margin-top: 40rpx;
+
+  overflow: auto;
+  padding: 0 15rpx;
+}
+
+.b-ipt {
+  overflow: auto;
+  border: 1px solid #ccc;
+}
+
+.del {
+  width: 40px;
+  float: right;
+  margin-left: 10px;
+}
 
 .box {
   width: 750rpx;
   height: 30rpx;
-  background-color: #b9f8b9;
+  background-color: #deeade1b;
 }
 
 .whitebox {
@@ -11,13 +36,55 @@
   background-color: white;
 }
 
+.hugewhitebox {
+  width: 750rpx;
+  height: 100rpx;
+  background-color: white;
+}
+
+.hugelightgreenbox {
+  width: 750rpx;
+  height: 250rpx;
+  background-color: #deeade1b;
+}
+
+.mediumlightgreenbox {
+  width: 750rpx;
+  height: 125rpx;
+  background-color: #deeade1b;
+}
+
 .cell-title {
   color: green !important;
   font-size: 40rpx !important;
   text-align: center;
   font-weight: bold;
 }
+.borderView{
+  width: 550rpx;
+  margin-left: 100rpx;
+  margin-top: 20rpx;
+  background-color: white;
+  color: green;
+  border-radius: 20rpx;
+  /* border-top: 2rpx solid rgb(226, 226, 226);
+  border-left: 2rpx solid rgb(226, 226, 226);
+  border-right: 2rpx solid rgb(226, 226, 226); */
+  border-bottom: 7rpx solid rgb(240, 239, 239);
+}
 
+.addNodeView{
+  width: 550rpx;
+  margin-left: 100rpx;
+  margin-top: 20rpx;
+  background-color: white;
+  color: black;
+  border-radius: 20rpx;
+  /* border-top: 2rpx solid rgb(226, 226, 226);
+  border-left: 2rpx solid rgb(226, 226, 226);
+  border-right: 2rpx solid rgb(226, 226, 226); */
+  border-bottom: 7rpx solid rgb(240, 239, 239);
+}
 .righttext {
   color: black !important;
   font-size: 30rpx !important;
@@ -27,7 +94,7 @@
 .cell-value {
   color: black !important;
   font-size: 28rpx !important;
-  text-align: center;
+  text-align: center !important;
 }
 
 .border-top-row {
@@ -40,60 +107,124 @@
   background: #aaa;
 }
 
-.hugebox {
-  width: 750rpx;
-  height: 1000rpx;
-  background-color: #b9f8b9;
-}
-
-
-.bottombutton{
+.bottombutton {
   width: 750rpx;
   height: 100rpx;
 }
 
 .btn1 {
   width: 60%;
+  height: 100rpx;
   margin-top: 20rpx;
-  background-color: #e6e6e6;
+  background-color: white;
   color: green;
-  border-radius: 98rpx;
+  border-radius: 20rpx;
+  border: 1px solid green;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.btn2 {
+  width: 60%;
+  height: 100rpx;
+  margin-top: 20rpx;
+  background-color: white;
+  color: #EA1C1B;
+  border-radius: 20rpx;
+  border: 1px solid #EA1C1B;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn3 {
+  width: 80%;
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: left;
+  align-items: center;
+  font: size 25;
+}
+
+.btn3text {
+  font-size: 30rpx;
+}
+
+.pickertext {
+  font-size: 30rpx;
+}
+.grey_text{
+  font-size: 30rpx;
+  color: #737373;
+}
+.pripickertext{
+  position: relative;
+  align-items:left;
+  font-size: 30rpx;
+}
+.pickertext{
+  text-align: left;
+}
+
+.label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.prilabel {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.btn3::after {
+  border: none;
+}
+
+.inbox {
+  display: flex;
+  margin: 0rpx 0 0 0rpx;
+}
+
+.longtext {
+  width: 240rpx;
+  height: 30rpx;
 }
 
 .btnImg {
   margin-right: 8rpx;
-  width: 50rpx;
-  height: 50rpx;
+  width: 35rpx;
+  height: 35rpx;
 }
 
+.inputImg {
+  width: 40rpx;
+  height: 40rpx;
+
+}
+.inputDateImg {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+}
 .btn1::after {
   border-radius: 98rpx;
-  border: 0; 
-}
-
-
-.btn2 {
-  width: 60%;
-  margin-top: 20rpx;
-  background-color: #e6e6e6;
-  color: rgba(255, 0, 0, 0.726);
-  border-radius: 98rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  border: 0;
 }
 
 .btn2::after {
   border-radius: 98rpx;
-  border: 0; 
+  border: 0;
 }
 
-.floatingborder{
+.floatingborder {
   width: 650rpx;
   position: absolute;
   top: 140rpx;
@@ -107,37 +238,141 @@
   justify-content: center;
 }
 
-.greenbox{
+.greenbox {
   width: 750rpx;
   height: 30rpx;
   background-color: green;
 }
 
-.lightgreenbox{
+.lightgreenbox {
   width: 750rpx;
   height: 30rpx;
-  background-color: #e2f7e2;
+  background-color: #deeade1b;
 
 }
 
-.widthView{
-  width:750rpx;
+.widthView {
+  width: 550rpx;
+  margin-left: 100rpx;
+  margin-top: 20rpx;
+  height: 100rpx;
+  background-color: white;
+  color: black;
+  display: table-cell;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 20rpx;
+  border-bottom: 7rpx solid rgb(240, 239, 239);
+}
+
+.widthWhiteView {
+  display: flex;
+  width: 475rpx;
+  padding: 25rpx;
+  margin-left: 100rpx;
+  position: relative;
+  vertical-align: middle;
+  height: 70rpx;
+  border-radius: 20rpx;
+  background-color: white;
+  color: black;
+  display: table-cell;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 30rpx;
+}
+.blankWhiteView{
+  display: flex;
+  width: 475rpx;
+  padding: 25rpx;
+  margin-left: 100rpx;
+  position: relative;
+  vertical-align: middle;
+  height: 15rpx;
+  border-radius: 20rpx;
+  background-color: white;
+  color: black;
+  display: table-cell;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 30rpx;
+}
+.inputview {
+  width: 230rpx;
+  display: flex;
+  font-size: 30rpx;
+  flex-direction: row;
+  align-items: center;
+}
+
+.buttonView {
+  width: 300rpx;
   padding: 10rpx;
   position: relative;
   vertical-align: middle;
-  height:100rpx;
-  background-color: #e2f7e2;
+  height: 100rpx;
+  background-color: #deeade1b;
   color: black;
-  display:table-cell;
+  display: table-cell;
   flex-direction: row;
   justify-content: center;
 }
 
-.input11{
-  background-color: e2f7e2;
+.buttontext {
+  font-size: 27rpx;
+}
+.widthbackgroundView{
+  width: 82rpx;
+  padding: 10rpx;
+  position: relative;
+  vertical-align: middle;
+  height: 100rpx;
+  background-color: #deeade1b;
+  color: black;
+  display: table-cell;
+  flex-direction: row;
+  justify-content: center;
+}
+.buttonleftView {
+  width: 72rpx;
+  padding: 10rpx;
+  position: relative;
+  vertical-align: middle;
+  height: 100rpx;
+  background-color: #deeade1b;
+  color: black;
+  display: table-cell;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.cell-white-title{
+.tiniView {
+  width: 5rpx;
+  padding: 10rpx;
+  position: relative;
+  vertical-align: middle;
+  height: 100rpx;
+  background-color: white;
+  color: black;
+  display: table-cell;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttonrightView {
+  width: 3rpx;
+  padding: 10rpx;
+  position: relative;
+  vertical-align: middle;
+  height: 100rpx;
+  background-color: #deeade1b;
+  color: black;
+  display: table-cell;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cell-white-title {
   color: white !important;
   position: relative;
   background-color: green;
@@ -145,76 +380,103 @@
   text-align: center;
   font-weight: bold;
 }
-.StepsUI{
-  width:90%;
-  margin-left: 10%;
+
+.StepsUI {
+  width: 70%;
+  margin-left: 100rpx;
   background-color: white;
 }
 
-.picker{
-    padding: 13px;
-    font-size: 29rpx;
-    background-color: #FFFFFF;
+.picker {
+  padding: 13px;
+  font-size: 29rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalpicker{
+  padding: 13px;
+  font-size: 29rpx;
+  background-color: #deeade1b;
+  color: black;
 }
 
-
 /*选项*/
-.option-item{
+.option-item {
   align-items: center;
   margin-bottom: 10rpx;
 }
+
 /*选项 文本框*/
-.option-item input{
-  width:80%;
+.option-item input {
+  width: 80%;
   height: 60rpx;
   font-size: 28rpx;
-  color:#000000;
+  color: #000000;
   padding-left: 20rpx;
 }
+
 /*选项 图片*/
-.img{
-  width:46rpx;
+.img {
+  width: 46rpx;
   height: 46rpx;
   margin-left: 20rpx;
 }
-.add-option-item{
+
+.add-option-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 60rpx;
 }
+
 /*添加选项*/
-.btnText{
+.btnText {
   display: flex;
   align-items: center;
   height: 60rpx;
-  font-size: 28rpx;
+  font-size: 30rpx;
   font-weight: 500;
-  color:#78a2f0;
+  color: #329B33;
   padding-left: 20rpx;
 }
-.add-status-view{
-  width:90%;
-  margin-left: 10%;
-  background-color: white;
+.btndelText {
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #EA1C1B;
+  padding-left: 20rpx;
 }
-.status-box{
-  width:90%;
+
+.add-status-view {
+  width: 90%;
   margin-left: 10%;
   background-color: white;
 }
 
-.saveButton{
+.status-box {
+  width: 90%;
+  margin-left: 10%;
+  background-color: white;
+}
+
+.saevButton {
   /* height: 80rpx;
   width: 80rpx; */
   position: fixed;
   top: 200rpx;
   right: 30rpx;
-  z-index:300;
+  z-index: 300;
 }
 
 .btnSaveImg {
-  margin-right: 10rpx;
-  width: 60rpx;
+  margin-right: 12rpx;
+  width: 120rpx;
   height: 60rpx;
+  background-color: white;
+  font-size: 30rpx;
+  color: green;
 }

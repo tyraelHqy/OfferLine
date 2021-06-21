@@ -47,6 +47,18 @@
           "pathName": "pages/showOffer/showOffer",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "components/EmptyView/EmptyView",
+          "pathName": "components/EmptyView/EmptyView",
+          "query": "",
+          "scene": null
         }
       ]
     }

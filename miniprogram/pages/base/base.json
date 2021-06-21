@@ -3,6 +3,7 @@
     "van-button": "vant-weapp/button/index",
     "van-row": "vant-weapp/row/index",
     "van-icon": "vant-weapp/icon/index",
-    "van-col": "vant-weapp/col/index"
+    "van-col": "vant-weapp/col/index",
+    "emptyview": "../../components/EmptyView/EmptyView"
   }
 }

@@ -1,0 +1,44 @@
+.empty-content {
+
+  width: 750rpx;
+  height: 600rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+
+.empty-content image {
+
+  width: 75%;
+  margin-top: -100rpx;
+
+}
+
+.empty-content .info {
+  font-size: 30rpx;
+  color: black;
+  margin: 0 0 40rpx;
+}
+
+
+
+.empty-content .empty-btn {
+
+  font-size: 30rpx;
+  width: 42.67%;
+  text-align: center;
+
+  height: 80rpx;
+
+  line-height: 80rpx;
+
+  background: #329B33;
+
+  color: #ffffff;
+
+  border-radius: 50rpx;
+
+}

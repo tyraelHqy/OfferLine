@@ -1,86 +1,78 @@
-<view class="greenbox"></view>
-<view class="greenbox"></view>
 
+<view class="greenbox"></view>
+<view class="greenbox"></view>
 <van-row class="cell-white-title">
   <van-row>
-    <van-col offset="8" span="8">Offer Line</van-col>
+    <van-col offset="8" span="8">我的Offer</van-col>
     <van-col offset="21" span="4">
       <van-icon bindtap="" name="plus" color="white" size="5rpx" />
     </van-col>
-</van-row>
+  </van-row>
 
 </van-row>
 <view class="greenbox"></view>
+<view class="greenbox"></view>
+<view class="greenbox"></view>
 
 <view class="floatingborder">
-  <van-row gutter="20">
-    <van-col class="cell-title" span="8">
-      <text class="righttext">共有流程项 </text>
-      <view class="lightgreenbox"></view>
-      <text> {{NumberProcess}}</text>
-      <view class="whitebox"></view>
+  <van-row gutter="10">
+    <van-col class="cell-title" span="12">
+      <view class="mediumwhitebox"></view>
+      <text class="righttext">共有进程项 </text>
+      <view class="mediumwhitebox"></view>
+      <text class="labeltext"> {{NumberProcess}}</text>
     </van-col>
-    <van-col class="cell-title" span="8">
-      <text class="righttext">获得Offer数</text>
-      <view class="lightgreenbox"></view>
-      <text> {{OfferNumber}}</text>
-      <view class="whitebox"></view>
-    </van-col>
-    <van-col class="cell-title" span="8">
-      <text class="righttext">进行中流程</text>
-      <view class="lightgreenbox"></view>
-      <text> {{BeingNumber}}</text>
-      <view class="whitebox"></view>
+    <van-col class="cell-title" span="12">
+      <view class="mediumwhitebox"></view>
+      <text class="righttext" decode="true">待办流程数&nbsp;</text>
+      <image class="ques_img" bindtap="showQuestion" src="../../images/question.png" />
+      <view class="mediumwhitebox"></view>
+      <text class="labeltext"> {{marklateIndex}}</text>
     </van-col>
   </van-row>
 </view>
+<view class="backgroundBox"></view>
 
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
 
-<van-row gutter="20">
-  <view class="whitebox"></view>
-  <van-col class="cell-title" span="6">公司</van-col>
-  <van-col class="cell-title" span="6">岗位</van-col>
-  <van-col class="cell-title" span="6">最新状态</van-col>
-  <van-col class="cell-title" span="6">备注</van-col>
-</van-row>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<view class="whitebox"></view>
+<emptyview wx:if="{{OfferInformation.length==0}}" ></emptyview>
 
-<block wx:for="{{OfferInformation}}" wx:key="index" >
-  <van-row gutter="20" class="border-row">
-    <view bindtap="editOfferInformation" class="widthView" data-bean="{{item}}">
-      <van-col class="cell-value" span="6">
-        {{item.company}}
-      </van-col>
-      <van-col class="cell-value" span="6">
-        {{item.position}}
-      </van-col>
-      <van-col class="cell-value" span="6">
-        {{status_array[item.status_index]}}
-      </van-col>
-      <van-col class="cell-value" span="6">
-        {{item.message}}
-      </van-col>
+<block wx:for="{{OfferInformation}}" wx:key="index">
+  <van-row gutter="10">
+    <view bindtap="editOfferInformation" class="" data-bean="{{item}}">
+      <view class="cardview">
+        <view class="chunk-white"></view>
+        <view class="redmark" wx:if="{{item.priority==0}}"></view>
+        <view class="orangemark" wx:if="{{item.priority==1}}"></view>
+        <view class="yellowmark" wx:if="{{item.priority==2}}"></view>
+        <view class="greymark" wx:if="{{item.priority==3}}"></view>
+        <view class="comAndSta">
+          <view class="companytext">
+            <text class="center_text blacken">{{item.company}}</text>
+          </view>
+          <view class="companytext">
+            <text class="center_text">{{item.newestStatus}}</text>
+          </view>
+        </view>
+        <view class="posAndDate">
+          <view class="posText">
+            <text class="center_text blacken">{{item.position}}</text>
+          </view>
+          <view class="posText">
+            <text class="center_text">{{item.newestDate}}</text>
+          </view>
+        </view>
+        <view class="details">
+          <text class="center_text green_text">详情</text>
+          <image class='center_img' src='../../images/arror.png'></image>
+        </view>
+
+      </view>
+
+      <view class="backgroundBox"></view>
+      <view class="backgroundBox"></view>
     </view>
+
   </van-row>
 
-  <view class="whitebox"></view>
-  <view class="whitebox"></view>
 
-  <view class="whitebox"></view>
-  <view class="whitebox"></view>
 </block>

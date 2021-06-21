@@ -3,11 +3,14 @@ var util = require('../utils/utils.js');
 Page({
   data: {
     index: '',
-    currentYear: 1900,
-    currentMonth: 1,
-    currentDay: 1,
-    stepsActiveIndex: 0,
-    status_array: ['笔试', '一面', '二面', '三面', '四面', 'hr面', 'Offer Get!'],
+    currentYear: '',
+    currentMonth: '',
+    currentDay: '',
+    priority: '',
+    stepsActiveIndex: -1,
+    priority_array: ['P0', 'P1', 'P2', 'P3'],
+    status_index: '',
+    status_array: ['递交简历', '笔试', '群面', '一轮面试', '二轮面试', '三轮面试', '四轮面试', '五轮面试', 'hr面', 'Offer Get!', '流程终止'],
     date: '',
     company: '',
     position: '',
@@ -21,161 +24,115 @@ Page({
     simian_id: 4,
     hrmian_id: 5,
     OfferGet_id: 6,
-    bishi_date: '2022-01-01',
-    yimian_date: '2022-01-01',
-    ermian_date: '2022-01-01',
-    sanmian_date: '2022-01-01',
-    simian_date: '2022-01-01',
-    hrmian_date: '2022-01-01',
-    OfferGet_date: '2022-01-01',
-    status_index: 0,
     _id: '',
+    steplist: [],
+    newestStatus: '',
+    statusname: '',
+    statusdate: '',
   },
-
-  bindStatusPickerChange: function (e) {
-    console.log('status发送选择改变，携带值为', e.detail.value)
+  bindPickerChange: function (e) {
     this.setData({
-      index: e.detail.value
+      priority: e.detail.value
     })
+    console.log('picker发送选择改变，携带值为', this.data.priority)
   },
-
+  bindStatusPickerChange: function (e) {
+    this.setData({
+      status_index: e.detail.value,
+      newestStatus: this.data.status_array[e.detail.value]
+    })
+    console.log('status_index发送选择改变，携带值为', this.data.status_index)
+  },
+  insert: function () {
+    var steplist = this.data.steplist;
+    steplist.push({
+      text: this.data.statusname,
+      desc: this.data.statusdate
+    });
+    this.setData({
+      steplist: steplist
+    });
+    console.log(this.data.steplist);
+  },
+  delBind: function () {
+    var steplist = this.data.steplist;
+    console.log(steplist);
+    steplist.pop(this.data.steplist.length);
+    this.setData({
+      steplist: steplist
+    });
+    console.log(steplist);
+  },
+  onStepListStatusChange: function (e) {
+    this.setData({
+      statusname: e.detail
+    })
+    console.log('statusname发送选择改变，携带值为', this.data.statusname)
+  },
 
   bindDateChange: function (e) {
     console.log('date发送选择改变，携带值为', e.detail.value)
     this.setData({
-      date: e.detail.value
-    })
-  },
-
-  bindBiShiDateChange: function (e) {
-    console.log('笔试date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      bishi_date: e.detail.value
-    })
-  },
-
-  bindYiMianDateChange: function (e) {
-    console.log('一面date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      yimian_date: e.detail.value
-    })
-  },
-
-  bindErMianDateChange: function (e) {
-    console.log('二面date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      ermian_date: e.detail.value
-    })
-  },
-
-  bindSanMianDateChange: function (e) {
-    console.log('三面date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      sanmian_date: e.detail.value
-    })
-  },
-
-  bindSiMianDateChange: function (e) {
-    console.log('四面date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      simian_date: e.detail.value
-    })
-  },
-
-  bindHrMianDateChange: function (e) {
-    console.log('hr面试date发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      hrmian_date: e.detail.value
-    })
-  },
-
-  bindOfferGetDateChange: function (e) {
-    console.log('OfferGetdate发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      OfferGet_date: e.detail.value
+      statusdate: e.detail.value
     })
   },
 
   onCompanyChange(event) {
     // event.detail 为当前输入的值
     console.log(event);
-    this.data.company = event.detail;
+    this.data.company = event.detail.value;
     console.log(this.data.company);
   },
 
   onPositionChange(event) {
     // event.detail 为当前输入的值
     console.log(event);
-    this.data.position = event.detail;
+    this.data.position = event.detail.value;
     console.log(this.data.position);
-  },
-
-  onStatusChange(event) {
-    // event.detail 为当前输入的值
-    console.log(event);
-    this.data.status = event.detail;
-    console.log(this.data.status);
-  },
-
-  onDateTimeChange(event) {
-    // event.detail 为当前输入的值
-    console.log(event);
-    this.data.date_time = event.detail;
-    console.log(this.data.date_time);
   },
 
   onMessageChange(event) {
     // event.detail 为当前输入的值
     console.log(event);
-    this.data.message = event.detail;
-    console.log(this.data.company);
+    this.data.message = event.detail.value;
+    console.log(this.data.message);
   },
 
   saveOfferInformation: function () {
     var currentDay = this.data.currentDay;
     var currentMonth = this.data.currentMonth;
     var currentYear = this.data.currentYear;
-    var currentDate = currentYear+"-"+currentMonth+"-"+currentDay;
-    console.log("currentday:"+currentDate);
+    var currentDate = currentYear + "/" + currentMonth + "/" + currentDay;
+    var newestStatus = this.data.status_array[this.data.status_index];
+    var steplist = this.data.steplist;
 
-    if(util.compareDate(this.data.OfferGet_date,currentDate)){
-      console.log("OfferGet_date——"+OfferGet_date+" 的日期小于 "+ currentDate);
-      this.setData({
-        stepsActiveIndex:6,
-        status_index:6,
-      })
-    }
-    else if(util.compareDate(this.data.hrmian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:5,
-        status_index:5,
-      })
-    }else if(util.compareDate(this.data.simian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:4,
-        status_index:4,
-      })
-    }else if(util.compareDate(this.data.sanmian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:3,
-        status_index:3,
-      })
-    }else if(util.compareDate(this.data.ermian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:2,
-        status_index:2,
-      })
-    }else if(util.compareDate(this.data.yimian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:1,
-        status_index:1,
-      })
-    }else{
-      this.setData({
-        stepsActiveIndex:0,
-        status_index:0,
-      })
-    }
+    steplist.push({
+      text: this.data.newestStatus,
+      desc: this.data.statusdate
+    });
+    this.setData({
+      steplist: steplist
+    });
+
+    console.log(steplist);
+
+    var newestStatus = steplist[steplist.length - 1].text;
+    var newestDate = steplist[steplist.length - 1].desc;
+    this.setData({
+      newestStatus: newestStatus,
+      newestDate: newestDate
+    })
+
+    for (var i = 0; i < steplist.length; i++) {
+      if (new Date(Date.parse(steplist[i].desc.replace(/-/g,'/'))) < new Date(Date.parse(currentDate))) {
+        console.log('set stepsActiveIndex:', i)
+        this.setData({
+          stepsActiveIndex: i,
+        })
+      }
+    };
+
+    console.log("newestStatus:" + newestStatus);
     db.collection('offerinformations').add({
       data: {
         company: this.data.company,
@@ -183,14 +140,12 @@ Page({
         status: this.data.status,
         date_time: this.data.date_time,
         message: this.data.message,
-        yimian_date: this.data.yimian_date,
-        ermian_date: this.data.ermian_date,
-        sanmian_date: this.data.sanmian_date,
-        simian_date: this.data.simian_date,
-        bishi_date: this.data.bishi_date,
-        hrmian_date: this.data.hrmian_date,
-        OfferGet_date: this.data.OfferGet_date,
-        status_index:this.data.status_index,
+        status_index: this.data.status_index,
+        stepsActiveIndex: this.data.stepsActiveIndex,
+        steplist: this.data.steplist,
+        newestStatus: this.data.newestStatus,
+        newestDate: this.data.newestDate,
+        priority: this.data.priority,
       }
     }).then(res => {
       console.log(res);
@@ -217,13 +172,20 @@ Page({
   },
 
   onShow: function (options) { //数据在options对象身上
+    var myDate = new Date();
+    var currentDay = myDate.getFullYear();
+    var currentMonth = myDate.getMonth() + 1;
+    var currentYear = myDate.getDate();
+    var currentDate = '请选择日期';
     this.setData({
-      company: this.data.company,
-      position: this.data.position,
-      status: this.data.status,
-      date_time: this.data.date_time,
-      message: this.data.message
+      company: '',
+      position: '',
+      message: '',
+      statusname: '',
+      statusdate: currentDate,
+      steplist: [],
+      newestStatus: '请选择流程节点',
     })
-    console.log(this.data.company)
+    console.log(this.data)
   },
 });

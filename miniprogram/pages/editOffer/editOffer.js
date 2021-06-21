@@ -2,77 +2,103 @@ const db = wx.cloud.database(); // 初始化数据库
 var util = require('../utils/utils.js');
 Page({
   data: {
-    index:'',
-    currentYear:1900,
-    currentMonth:1,
-    currentDay:1,
-    stepsActiveIndex:0,
-    status_array: ['笔试', '一面', '二面', '三面', '四面', 'hr面', 'Offer Get!'],
+    statusname: '',
+    hiddenmodalput: true,
+    statusdate: '请选择日期',
+    currentYear: 1900,
+    currentMonth: 1,
+    currentDay: 1,
+    priority: 3,
+    stepsActiveIndex: -1,
+    newestDate: '',
+    priority_array: ['P0', 'P1', 'P2', 'P3'],
+    status_array: ['递交简历', '笔试', '群面', '一轮面试', '二轮面试', '三轮面试', '四轮面试', '五轮面试', 'hr面', 'Offer Get!', '流程终止'],
     date: '2021-09-01',
     company: '腾讯',
     position: '后台开发',
     status: '二面',
     date_time: '2012-08-21',
     message: '嘻嘻嘻嘻嘻嘻嘻嘻嘻想',
-    bishi_id:0,
-    yimian_id:1,
-    ermian_id:2,
-    sanmian_id:3,
-    simian_id:4,
-    hrmian_id:5,
-    OfferGet_id:6,
-    bishi_date:'2011-05-23',
-    yimian_date:'2011-05-27',
-    ermian_date:'2011-06-02',
-    sanmian_date:'2011-06-15',
-    simian_date:'2011-06-23',
-    hrmian_date:'2011-06-25',
-    OfferGet_date:'2011-06-25',
-    status_index:0,
+    bishi_id: 0,
+    yimian_id: 1,
+    ermian_id: 2,
+    sanmian_id: 3,
+    simian_id: 4,
+    hrmian_id: 5,
+    OfferGet_id: 6,
+    bishi_date: '2011-05-23',
+    yimian_date: '2011-05-27',
+    ermian_date: '2011-06-02',
+    sanmian_date: '2011-06-15',
+    simian_date: '2011-06-23',
+    hrmian_date: '2011-06-25',
+    OfferGet_date: '2011-06-25',
+    status_index: '-1',
     _id: '',
-    steps: [{
-        text: '笔试',
-        desc: '2022-05-23',
-      },
-      {
-        text: '一面',
-        desc: '2022-05-27',
-      },
-      {
-        text: '二面',
-        desc: '2022-06-02',
-      },
-      {
-        text: '三面',
-        desc: '2022-06-15',
-      },
-      {
-        text: '四面',
-        desc: '2022-06-23',
-      },
-      {
-        text: 'hr面',
-        desc: '2022-06-25',
-      },
-      {
-        text: 'Offer Get！',
-        desc: '2022-06-25',
-      },
-    ],
+    steplist: [{
+      text: '笔试',
+      desc: '2021-06-19'
+    }, {
+      text: '面试1',
+      desc: '2021-06-20'
+    }],
   },
-
-  bindStatusPickerChange: function (e) {
-    console.log('status发送选择改变，携带值为', e.detail.value)
+  showModal: function (e) {
     this.setData({
-      index: e.detail.value
+      hiddenmodalput: false,
     })
   },
+  cancelM: function (e) {
+    this.setData({
+      hiddenmodalput: true,
+    })
+  },
+  bindPickerChange: function (e) {
+    this.setData({
+      priority: e.detail.value
+    })
+    console.log('priority发送选择改变，携带值为', this.data.priority)
+  },
+  bindStatusPickerChange: function (e) {
+    this.setData({
+      status_index: e.detail.value
+    })
+    console.log('status_index发送选择改变，携带值为', this.data.status_index)
+  },
+  insert: function () {
+    var steplist = this.data.steplist;
+    steplist.push({
+      text: this.data.status_array[this.data.status_index],
+      desc: this.data.statusdate
+    });
+    this.setData({
+      steplist: steplist,
+      hiddenmodalput: true,
+    });
+    console.log(this.data.steplist);
+  },
 
+  delBind: function () {
+    var steplist = this.data.steplist;
+    console.log(steplist);
+    steplist.pop(this.data.steplist.length);
+    this.setData({
+      steplist: steplist
+    });
+    console.log(steplist);
+  },
+
+  onStepListStatusChange: function (e) {
+    this.setData({
+      statusname: e.detail
+    })
+    console.log('statusname发送选择改变，携带值为', this.data.statusname)
+  },
 
   bindDateChange: function (e) {
     console.log('date发送选择改变，携带值为', e.detail.value)
     this.setData({
-      date: e.detail.value
+      statusdate: e.detail.value
     })
   },
 
@@ -128,89 +154,37 @@ Page({
   onCompanyChange(event) {
     // event.detail 为当前输入的值
     console.log(event);
-    this.data.company = event.detail;
+    this.data.company = event.detail.value;
     console.log(this.data.company);
   },
 
   onPositionChange(event) {
     // event.detail 为当前输入的值
     console.log(event);
-    this.data.position = event.detail;
+    this.data.position = event.detail.value;
     console.log(this.data.position);
-  },
-
-  onStatusChange(event) {
-    // event.detail 为当前输入的值
-    console.log(event);
-    this.data.status = event.detail;
-    console.log(this.data.status);
-  },
-
-  onDateTimeChange(event) {
-    // event.detail 为当前输入的值
-    console.log(event);
-    this.data.date_time = event.detail;
-    console.log(this.data.date_time);
   },
 
   onMessageChange(event) {
     // event.detail 为当前输入的值
     console.log(event);
-    this.data.message = event.detail;
-    console.log(this.data.company);
+    this.data.message = event.detail.value;
+    console.log(this.data.message);
   },
-
+  onHomeButtom: function () {
+    wx.switchTab({
+      url: '../base/base',
+    })
+  },
   saveOfferInformation: function () {
-    var currentDay = this.data.currentDay;
-    var currentMonth = this.data.currentMonth;
-    var currentYear = this.data.currentYear;
-    var currentDate = currentYear+"-"+currentMonth+"-"+currentDay;
-    console.log("currentday:"+currentDate);
+    var steplist = this.data.steplist;
 
-    if(util.compareDate(this.data.OfferGet_date,currentDate)){
-      console.log("OfferGet_date——"+OfferGet_date+" 的日期小于 "+ currentDate);
-      this.setData({
-        stepsActiveIndex:6,
-        status_index:6,
-      })
-    }
-    else if(util.compareDate(this.data.hrmian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:5,
-        status_index:5,
-      })
-    }else if(util.compareDate(this.data.simian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:4,
-        status_index:4,
-      })
-    }else if(util.compareDate(this.data.sanmian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:3,
-        status_index:3,
-      })
-    }else if(util.compareDate(this.data.ermian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:2,
-        status_index:2,
-      })
-    }else if(util.compareDate(this.data.yimian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:1,
-        status_index:1,
-      })
-    }else if(util.compareDate(this.data.bishi_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:0,
-        status_index:0,
-      })
-    }else{
-      this.setData({
-        stepsActiveIndex:-1,
-        status_index:0,
-      })
-    }
-    console.log(this.data._id)
+    var newestStatus = steplist[steplist.length - 1].text;
+
+    var newestDate = steplist[steplist.length - 1].desc;
+
+    console.log('newestStatus:', newestStatus)
+    console.log('newestDate:', newestDate)
     db.collection('offerinformations')
       .doc(this.data._id)
       .update({
@@ -227,17 +201,27 @@ Page({
           bishi_date: this.data.bishi_date,
           hrmian_date: this.data.hrmian_date,
           OfferGet_date: this.data.OfferGet_date,
-          status_index:this.data.status_index,
-          stepsActiveIndex:this.data.stepsActiveIndex,
+          status_index: this.data.status_index,
+          stepsActiveIndex: this.data.stepsActiveIndex,
+          steplist: this.data.steplist,
+          newestStatus: newestStatus,
+          priority: this.data.priority,
+          newestDate: newestDate,
         }
       }).then(res => {
         console.log(res);
+        var $data = this.data;
+        var steplist = JSON.stringify($data.steplist);
         wx.showModal({
           content: '已保存 ^.^',
           showCancel: false,
           success(res) {
             if (res.confirm) {
               console.log('用户点击确定')
+
+              // wx.redirectTo({
+              //   url: '../showOffer/showOffer?company=' + $data.company + '&position=' + $data.position + '&status=' + $data.status + '&date_time=' + $data.date_time + '&message=' + $data.message + '&_id=' + $data._id + '&steplist=' + steplist + '&newestStatus=' + $data.newestStatus + '&priority=' + $data.priority + '&newestDate=' + $data.newestDate
+              // })
               wx.switchTab({
                 url: '../base/base',
               })
@@ -313,6 +297,7 @@ Page({
   onLoad: function (options) { //数据在options对象身上
     console.log(options)
     var myDate = new Date();
+    var steplist = JSON.parse(options.steplist)
     this.setData({
       company: options.company,
       position: options.position,
@@ -325,66 +310,41 @@ Page({
       sanmian_date: options.sanmian_date,
       simian_date: options.simian_date,
       hrmian_date: options.hrmian_date,
+      priority: options.priority,
       OfferGet_date: options.OfferGet_date,
+      steplist: steplist,
       _id: options._id,
-      'steps[0].desc':options.bishi_date,
-      'steps[1].desc':options.yimian_date,
-      'steps[2].desc':options.ermian_date,
-      'steps[3].desc':options.sanmian_date,
-      'steps[4].desc':options.simian_date,
-      'steps[5].desc':options.hrmian_date,
-      'steps[6].desc':options.OfferGet_date,
-      currentYear:myDate.getFullYear(),
-      currentMonth:myDate.getMonth()+1,
-      currentDay:myDate.getDate(),
+      'steps[0].desc': options.bishi_date,
+      'steps[1].desc': options.yimian_date,
+      'steps[2].desc': options.ermian_date,
+      'steps[3].desc': options.sanmian_date,
+      'steps[4].desc': options.simian_date,
+      'steps[5].desc': options.hrmian_date,
+      'steps[6].desc': options.OfferGet_date,
+      currentYear: myDate.getFullYear(),
+      currentMonth: myDate.getMonth() + 1,
+      currentDay: myDate.getDate(),
+    })
+    var newestStatus = steplist[steplist.length - 1].text;
+    var newestDate = steplist[steplist.length - 1].desc;
+    this.setData({
+      newestStatus: newestStatus,
+      newestDate: newestDate
     })
     var currentDay = this.data.currentDay;
     var currentMonth = this.data.currentMonth;
     var currentYear = this.data.currentYear;
-    var currentDate = currentYear+"-"+currentMonth+"-"+currentDay;
-    console.log("currentday:"+currentMonth,currentYear,currentDay);
-    if(util.compareDate(this.data.OfferGet_date,currentDate)){
-      console.log("OfferGet_date——"+OfferGet_date+" 的日期小于 "+ currentDate);
-      this.setData({
-        stepsActiveIndex:6,
-        status_index:6,
-      })
-    }
-    else if(util.compareDate(this.data.hrmian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:5,
-        status_index:5,
-      })
-    }else if(util.compareDate(this.data.simian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:4,
-        status_index:4,
-      })
-    }else if(util.compareDate(this.data.sanmian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:3,
-        status_index:3,
-      })
-    }else if(util.compareDate(this.data.ermian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:2,
-        status_index:2,
-      })
-    }else if(util.compareDate(this.data.yimian_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:1,
-        status_index:1,
-      })
-    }else if(util.compareDate(this.data.bishi_date,currentDate)){
-      this.setData({
-        stepsActiveIndex:0,
-        status_index:0,
-      })
-    }else{
-      this.setData({
-        stepsActiveIndex:-1,
-        status_index:0,
-      })
-    }
+    var currentDate = currentYear + "/" + currentMonth + "/" + currentDay;
+    console.log("currentday:" + currentMonth, currentYear, currentDay);
+
+    for (var i = 0; i < steplist.length; i++) {
+      if (new Date(Date.parse(steplist[i].desc.replace(/-/g,'/'))) < new Date(Date.parse(currentDate))) {
+        console.log('set stepsActiveIndex:', i)
+        this.setData({
+          stepsActiveIndex: i,
+        })
+      }
+    };
   },
+
 });

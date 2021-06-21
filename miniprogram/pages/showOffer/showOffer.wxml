@@ -3,47 +3,98 @@
 <van-row class="cell-white-title">
   Offer详情
   <van-col offset="20" span="4" class="">
-    <van-icon bindtap="" name="upgrade" color="green"  />
   </van-col>
+
 </van-row>
-
-<view class='saveButton'  bindtap="editOfferInformation">
-  <image class='btnSaveImg' src='../../images/修改 黑.png'></image>
-</view>
-
+<view class="greenbox"></view>
 <van-cell-group>
 
   <view class="lightgreenbox"></view>
+  <view class="widthbackgroundView"></view>
+  <!-- <view class="widthView">
+    <van-field disabled label="公司" value="{{ company }}" placeholder="请输入公司名称" bind:change="onCompanyChange">
+    </van-field>
+    <van-field disabled label="岗位" value="{{ position }}" placeholder="请输入岗位名称" bind:change="onPositionChange">
+    </van-field>
+    <van-field disabled label="最新流程" value="{{ newestStatus }}" placeholder="请输入流程" bind:change="onCompanyChange">
+    </van-field>
+    <van-field disabled label="优先级" value="{{ priority_array[priority] }}" placeholder="请选择优先级" bind:change="">
+    </van-field>
+    <van-field value="{{ message }}" label="备注" type="textarea" disabled placeholder="请输入备注" autosize
+      bind:change="onMessageChange" />
+  </view> -->
   <view class="widthView">
-    <van-field required disabled label="公司" value="{{ company }}" placeholder="请输入公司名称" bind:change="onCompanyChange">
-    </van-field>
-    <van-field required disabled label="岗位" value="{{ position }}" placeholder="请输入岗位名称" bind:change="onPositionChange">
-    </van-field>
-  </view>
-  <view class="lightgreenbox"></view>
-  <van-field value="{{ message }}" label="备注" type="textarea" disabled placeholder="请输入备注" autosize
-    bind:change="onMessageChange" />
+    <view class="widthWhiteView">
+      <view class="inbox">
+        <label class="label">
+          <image class='inputImg' src='../../images/company.png'></image>
+          <text class="pickertext"
+            decode="{{true}}">&nbsp;&nbsp;&nbsp;公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+        </label>
+        <input class="inputview" placeholder="请输入公司名称" bindinput="onCompanyChange" value="{{company}}" disabled="true"/>
+      </view>
+    </view>
+    <view></view>
+    <view class="widthWhiteView">
+      <view class="inbox">
+        <label class="label">
+          <image class='inputImg' src='../../images/position.png'></image>
+          <text class="pickertext"
+            decode="{{true}}">&nbsp;&nbsp;&nbsp;岗位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+        </label>
+        <input class="inputview" placeholder="请输入岗位名称" bindinput="onPositionChange" value="{{position}}" disabled="true"/>
+      </view>
+    </view>
 
+    <view class="inbox">
+      <view class="label">
+        <view class="tiniView"></view>
+        <image class='inputImg' src='../../images/priority.png'></image>
+
+        <text class="pickertext"
+            decode="{{true}}">&nbsp;&nbsp;&nbsp;优先级&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+        <input class="inputview" placeholder="请选择优先级" bindinput="onPositionChange" value="{{priority_array[priority]}}" disabled="true"/>
+      </view>
+    </view>
+    <view class="widthWhiteView">
+      <view class="inbox">
+        <label class="label">
+          <image class='inputImg' src='../../images/message.png'></image>
+          <text class="pickertext"
+            decode="{{true}}">&nbsp;&nbsp;&nbsp;备注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+        </label>
+        <textarea class="longtext" auto-height="true" placeholder="请输入备注" bindinput="onMessageChange" value="{{message}}"  disabled="true"></textarea>
+      </view>
+    </view>
+  </view>
+  
   <view class="lightgreenbox"></view>
-  <view class="StepsUI">
-    <van-steps class="StepsUI" steps="{{ steps }}" active="{{stepsActiveIndex}}" active-icon="success" direction="vertical"
-      active-color="green" bind:click-step="clickstep" />
+  <view class="borderView">
+    <view class="blankWhiteView"></view>
+    <button class='btn3' bindtap="">
+      <image class='btnImg' src='../../images/timeline.png'></image>
+      <text class="btn3text" space="nbsp"> 流程Timeline</text>
+    </button>
+
+    <view class="StepsUI">
+      <van-steps class="StepsUI" steps="{{ steplist }}" active="{{stepsActiveIndex}}" active-icon="success"
+        direction="vertical" active-color="green" bind:click-step="clickstep" />
+    </view>
+    <view class="blankWhiteView"></view>
   </view>
 
-  <view class="whitebox"></view>
-  <view class="whitebox"></view>
-  <view class="whitebox"></view>
+
 
 </van-cell-group>
 
-<view class="whitebox"></view>s
-<view class="whitebox"></view>
-<view class="whitebox"></view>
-<button class='btn1' bindtap="editOfferInformation">
-  <image class='btnImg' src='../../images/修改 黑.png'></image>
-  <text space="nbsp"> 编辑Offer</text>
-</button>
-<button class='btn2' bindtap="deleteOfferInformation">
-  <image class='btnImg' src='../../images/删除 红.png'></image>
-  <text space="nbsp"> 删除Offer</text>
-</button>
+
+<view class="lightgreenbox"></view>
+<view class="hugelightgreenbox">
+  <button class='btn1' bindtap="editOfferInformation">
+    <image class='btnImg' src='../../images/edit.png'></image>
+    <text class="btnText" space="nbsp"> 编辑该流程</text>
+  </button>
+</view>
+
+<view class="lightgreenbox"></view>
+<view class="lightgreenbox"></view>

@@ -1,5 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarBackgroundColor": "#009926",
-  "navigationBarTitleText": "分享Offer"
+  "usingComponents": {
+
+  "van-search": "vant-weapp/search/index"
+  }
 }

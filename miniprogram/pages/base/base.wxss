@@ -1,10 +1,128 @@
+.cardview{
+  width: 650rpx;
+  position: relative;
+  height: 160rpx;
+  top: -90rpx;
+  left: 50rpx;
+  overflow-x: hidden;
+  background-color: white;
+  color: black;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 7rpx solid rgb(240, 239, 239);
+
+}
+
+.chunk-white{
+  width: 20rpx;
+  height: 160rpx;
+  background-color: white;
+}
+.redmark{
+  display: flex;
+  width: 7rpx;
+  height: 160rpx;
+  background-color: #ea1c1b;
+}
+.orangemark{
+  display: flex;
+  width: 7rpx;
+  height: 160rpx;
+  background-color: #EA7E32;
+}
+.yellowmark{
+  display: flex;
+  width: 7rpx;
+  height: 160rpx;
+  background-color: #EADE1B;
+}
+.greymark{
+  display: flex;
+  width: 7rpx;
+  height: 160rpx;
+  background-color: #8B8C8B;
+}
+.green_text{
+  color: green;
+}
+.comAndSta{
+  display: flex;
+  flex-direction: column;
+  width: 200rpx;
+  height: 160rpx;
+  background-color: white;
+}
+.companytext{
+  display: flex;
+  width: 200rpx;
+  height: 80rpx;
+  background-color: white;
+}
+.blacken{
+  font-size: 30rpx;
+  font-weight: 900;
+}
+.posAndDate{
+  display: flex;
+  flex-direction: column;
+  width: 250rpx;
+  height: 160rpx;
+  background-color: white;
+}
+.posText{
+  display: flex;
+  width: 250rpx;
+  height: 80rpx;
+  background-color: white;
+}
+.details{
+  display: flex;
+  flex-direction: row;
+  width: 193rpx;
+  height: 160rpx;
+  background-color: white;
+}
+.center_text{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;  
+  text-align: center；
+}
+.ques_img{
+  width: 25rpx;
+  height: 25rpx;
+}
+.center_img{
+  display: flex;
+  width: 40rpx;
+  height: 30rpx;
+  margin-right: 70rpx;
+  margin-top: 65rpx;
+}
+.color1{
+  background-color: white;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: red;
+}
 .box {
   width: 750rpx;
   height: 30rpx;
   overflow-x: hidden;
   background-color: #b9f8b9;
 }
+.longtextlimit{
+   overflow:hidden;
+   white-space:nowrap;
+   text-overflow:ellipsis;
 
+}
 .greenbox{
   width: 750rpx;
   height: 30rpx;
@@ -12,20 +130,28 @@
   background-color: green;
 }
 
-.lightgreenbox{
+.labeltext{
+  font-size: 50rpx;
+}
+.mediumwhitebox{
   width: 750rpx;
-  height: 10rpx;
+  height: 20rpx;
   overflow-x: hidden;
-  background-color: #e2f7e2;
+  background-color: white;
 }
 
 .whitebox {
   width: 750rpx;
   height: 10rpx;
-  overflow-x: hidden;
-  background-color: white;
+  background-color: #deeade1b;
 }
 
+
+.backgroundBox {
+  width: 750rpx;
+  height: 20rpx;
+  background-color: #deeade1b;
+}
 
 
 .cell-title {
@@ -46,7 +172,16 @@
 .righttext {
   color: black !important;
   font-size: 30rpx !important;
-  text-align: right;
+  text-align: center;
+}
+
+.companytext{
+  color: black !important;
+  font-size: 30rpx !important;
+}
+.statustext{
+  color: black !important;
+  font-size: 30rpx !important;
 }
 
 .cell-value {
@@ -74,26 +209,43 @@
 
 .floatingborder{
   width: 650rpx;
-  position: absolute;
-  top: 140rpx;
+  position: relative;
+  height: 200rpx;
+  top: -100rpx;
   left: 50rpx;
   overflow-x: hidden;
-  background-color: #e2f7e2;
+  background-color: white;
   color: green;
   border-radius: 30rpx;
   display: table-cell;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  
 }
 
+.p0mark{
+  width:5rpx;
+  height: 200rpx;
+  position: relative;
+  top: -100rpx;
+  left: 6rpx;
+  background-color: pink;
+  color: green;
+  border-radius: 20rpx;
+  display: table-cell;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+}
 .widthView{
   width:750rpx;
   padding: 10rpx;
   position: relative;
   vertical-align: middle;
   height:100rpx;
-  background-color: #e2f7e2;
+  background-color: #deeade1b;
   color: black;
   border-radius: 40rpx;
   display:table-cell;
@@ -105,3 +257,4 @@
   width: 50rpx;
   height: 50rpx;
 }
+
